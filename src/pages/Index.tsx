@@ -2,6 +2,8 @@ import { Navbar } from "@/components/Navbar";
 import { Stats } from "@/components/Stats";
 import { IncidentMap } from "@/components/IncidentMap";
 import { Timeline } from "@/components/Timeline";
+import { SentimentChart } from "@/components/SentimentChart";
+import { HumanitarianAid } from "@/components/HumanitarianAid";
 
 const Index = () => {
   return (
@@ -13,6 +15,8 @@ const Index = () => {
           <IncidentMap />
           <Timeline />
         </div>
+        <SentimentChart />
+        <HumanitarianAid />
       </main>
     </div>
   );

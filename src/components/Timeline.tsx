@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Circle } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 const events = [
   {
@@ -7,19 +8,33 @@ const events = [
     title: "Peace Talks Initiated",
     description: "Initial dialogue between conflicting parties established",
     type: "success",
+    category: "Diplomatic",
+    location: "Geneva"
   },
   {
     date: "2024-02-19",
     title: "Border Incident",
     description: "Minor skirmish reported at northern border",
     type: "warning",
+    category: "Security",
+    location: "Northern Region"
   },
   {
     date: "2024-02-18",
     title: "Humanitarian Aid Delivered",
     description: "Successfully delivered medical supplies to affected areas",
     type: "info",
+    category: "Aid",
+    location: "Eastern Province"
   },
+  {
+    date: "2024-02-17",
+    title: "Ceasefire Agreement",
+    description: "Temporary ceasefire agreement reached between parties",
+    type: "success",
+    category: "Diplomatic",
+    location: "Capital City"
+  }
 ];
 
 export const Timeline = () => {
@@ -38,10 +53,19 @@ export const Timeline = () => {
                   <div className="absolute h-full w-px bg-border top-4 left-[3.5px]" />
                 )}
               </div>
-              <div className="space-y-1">
-                <p className="text-sm font-medium leading-none">{event.title}</p>
+              <div className="space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <p className="text-sm font-medium leading-none">{event.title}</p>
+                  <Badge variant="secondary" className="text-xs">
+                    {event.category}
+                  </Badge>
+                </div>
                 <p className="text-sm text-muted-foreground">{event.description}</p>
-                <p className="text-xs text-muted-foreground">{event.date}</p>
+                <div className="flex gap-2 text-xs text-muted-foreground">
+                  <span>{event.date}</span>
+                  <span>•</span>
+                  <span>{event.location}</span>
+                </div>
               </div>
             </div>
           ))}
